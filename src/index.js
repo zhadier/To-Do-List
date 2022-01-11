@@ -10,6 +10,12 @@ if (localStorage.getItem('taskCollection')) {
   });
 }
 
+const addTask = document.querySelector('#addTask');
+addTask.addEventListener('click', () => {
+  const taskToAdd = document.querySelector('#add');
+  list.add(new TASK(taskToAdd.value, list.index));
+});
+
 list.add(new TASK('Do Your Homework', list.index));
 list.add(new TASK('Eat Your Dinner', list.index));
 list.add(new TASK('Take a Shower', list.index));

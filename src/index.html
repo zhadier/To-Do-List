@@ -4,17 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
+    <script src="https://kit.fontawesome.com/0a86823ed7.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <div class="place-holder">
-      <h1>Today's To Do</h1>
-      <input
-        type="text"
-        name="add"
-        id="add"
-        placeholder="Add to your List..."
-      />
+      <div class="heading">
+        <h1>Today's To Do</h1>
+        <button type="button" id="refresh"><i class="fas fa-sync"></i></button>
+      </div>
+      <div class="addBox">
+        <input type="text" name="add" id="add" placeholder="Add to your List..." />
+        <button id="addTask" type="submit"><i class="fas fa-angle-double-left"></i></button>
+      </div>
       <ul class="taskList"></ul>
       <button type="button" id="clear">Clear All Completed</button>
     </div>
