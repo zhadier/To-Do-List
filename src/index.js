@@ -1,13 +1,21 @@
-import _ from 'lodash';
 import './style.css';
+import LIST from './modules/List.js';
+import TASK from './modules/Task.js';
 
-function component() {
-  const element = document.createElement('div');
-
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
-  return element;
+const list = new LIST();
+if (localStorage.getItem('taskCollection')) {
+  const localTasks = JSON.parse(localStorage.getItem('taskCollection'));
+  localTasks.tasks.forEach((element) => {
+    list.add(new TASK(element.desc, element.index, element.completed));
+  });
 }
 
-document.body.appendChild(component());
+const addTask = document.querySelector('#addTask');
+addTask.addEventListener('click', () => {
+  const taskToAdd = document.querySelector('#add');
+  list.add(new TASK(taskToAdd.value, list.index));
+});
+
+list.add(new TASK('Do Your Homework', list.index));
+list.add(new TASK('Eat Your Dinner', list.index));
+list.add(new TASK('Take a Shower', list.index));

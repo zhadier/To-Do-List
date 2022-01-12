@@ -4,9 +4,9 @@
 
 > This Webpage is for an app called To-Do-List which helps you add, remove or check tasks you have to do.
 
-![screenshot]()
+![screenshot](https://user-images.githubusercontent.com/90556221/149033173-5d8a0805-453f-44a5-a69f-3bff67e844ac.png)
 
-It is a simple web page which contains information all the tasks you have to do.
+It is a simple web page which contains information about all the tasks you have to do.
 
 ## Built With
 
@@ -15,7 +15,6 @@ It is a simple web page which contains information all the tasks you have to do.
 ## Live Demo
 
 - [Live Demo Link]()
-- [Video Demo Link]()
 
 ## Getting Started
 
@@ -29,8 +28,8 @@ It is a simple web page which contains information all the tasks you have to do.
 
 #### Step 2:
 
-- Run index.html file in your browser
-- Use developer tools in order to view Mobile version
+- Run npm install
+- Run npm start 
 
 ## Authors
 

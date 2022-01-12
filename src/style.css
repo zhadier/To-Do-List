@@ -1,3 +1,118 @@
-.hello {
-  color: green;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --border-color: rgb(235, 225, 225);
+  --button-color: rgb(144, 144, 144);
+}
+
+body {
+  background-image: url(/bg.png);
+}
+
+.place-holder {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 25vh;
+  background-color: white;
+  box-shadow: 0 0 20px rgb(195, 179, 179);
+}
+
+.heading {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heading > h1 {
+  font-weight: 500;
+  font-size: 1.05rem;
+  font-family: 'lato', serif;
+  color: rgb(93, 92, 92);
+}
+
+.addBox {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-color);
+  padding: 10px;
+}
+
+#add {
+  border: 0;
+  outline: none;
+  width: 80%;
+  font-family: 'lato', serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: gray;
+}
+
+#add:placeholder-shown {
+  font-style: italic;
+  font-family: 'lato', serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.taskList {
+  list-style: none;
+}
+
+.taskList > li {
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  font-family: 'lato', serif;
+  font-weight: 400;
+  color: rgb(97, 96, 96);
+  font-size: 0.9rem;
+}
+
+.task > i {
+  margin-left: auto;
+  color: rgb(185, 185, 185);
+}
+
+#clear {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  color: var(--button-color);
+}
+
+#clear:hover {
+  background-color: rgb(29, 23, 23);
+}
+
+#clear:active {
+  background-color: rgb(29, 23, 23);
+  box-shadow: inset 0 0 0 1px rgb(255, 248, 248);
+}
+
+#refresh {
+  background: white;
+  border: none;
+  color: var(--button-color);
+}
+
+i:hover {
+  color: rgb(29, 23, 23);
+}
+
+#addTask {
+  background: white;
+  border: none;
+  color: var(--button-color);
 }
