@@ -1,28 +1,6 @@
 import display from './Display.js';
 import populateStorage from './PopulateStorage.js';
-import checked from './Check$Clear.js';
-
-const rearrangeIndex = (list) => {
-  const boxes = document.querySelectorAll('.inputTasks');
-  for (let i = 1; i <= list.taskList.length; i += 1) {
-    list.taskList[i - 1].index = i;
-    boxes[i - 1].dataset.value = `${i}`;
-  }
-  list.index = list.taskList.length + 1;
-  populateStorage(list);
-};
-
-const clear = (list) => {
-  const clear = document.querySelector('#clear');
-  clear.addEventListener('click', () => {
-    const checked = document.querySelectorAll('.checked');
-    checked.forEach((item) => {
-      item.parentNode.parentNode.removeChild(item.parentNode);
-    });
-    list.taskList = list.taskList.filter((item) => item.completed !== true);
-    rearrangeIndex(list);
-  });
-};
+import { checked, clear, rearrangeIndex } from './Check$Clear.js';
 
 const remove = (list) => {
   const tasks = document.querySelector('.taskList');
