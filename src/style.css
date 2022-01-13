@@ -75,10 +75,6 @@ body {
   gap: 10px;
   align-items: center;
   border-top: 1px solid var(--border-color);
-  font-family: 'lato', serif;
-  font-weight: 400;
-  color: rgb(97, 96, 96);
-  font-size: 0.9rem;
 }
 
 .task > i {
@@ -107,6 +103,34 @@ body {
   color: var(--button-color);
 }
 
+.removeButton {
+  margin-left: auto;
+  color: rgb(126, 125, 125);
+  border: 0;
+}
+
+.inputTasks {
+  font-family: 'lato', serif;
+  font-weight: 400;
+  color: rgb(97, 96, 96);
+  font-size: 0.9rem;
+  border: 0;
+  outline: 0;
+  width: 80%;
+}
+
+.focused {
+  background: rgb(248, 248, 123);
+}
+
+.focused > .inputTasks {
+  background: rgb(248, 248, 123);
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
 i:hover {
   color: rgb(29, 23, 23);
 }
@@ -115,4 +139,8 @@ i:hover {
   background: white;
   border: none;
   color: var(--button-color);
+}
+
+.toggle {
+  display: none;
 }
