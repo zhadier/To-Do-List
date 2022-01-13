@@ -6,10 +6,14 @@ const checked = (list) => {
     evt.stopImmediatePropagation();
     if (evt.currentTarget.checked) {
       evt.currentTarget.parentNode.children[1].classList.add('checked');
-      list.taskList[`${evt.currentTarget.parentNode.children[1].dataset.value}`].completed = 1;
+      list.taskList[
+        `${evt.currentTarget.parentNode.children[1].dataset.value - 1}`
+      ].completed = true;
     } else {
       evt.currentTarget.parentNode.children[1].classList.remove('checked');
-      list.taskList[`${evt.currentTarget.parentNode.children[1].dataset.value}`].completed = 0;
+      list.taskList[
+        `${evt.currentTarget.parentNode.children[1].dataset.value - 1}`
+      ].completed = false;
     }
     populateStorage(list);
   });

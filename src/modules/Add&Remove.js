@@ -1,14 +1,15 @@
 import display from './Display.js';
 import populateStorage from './PopulateStorage.js';
-import checked from './Checked&Drag.js';
+import checked from './Check$Clear.js';
 
 const rearrangeIndex = (list) => {
   const boxes = document.querySelectorAll('.inputTasks');
-  for (let i = 0; i < list.taskList.length; i += 1) {
-    list.taskList[i].index = i;
-    boxes[i].dataset.value = `${i}`;
+  for (let i = 1; i <= list.taskList.length; i += 1) {
+    list.taskList[i - 1].index = i;
+    boxes[i - 1].dataset.value = `${i}`;
   }
-  list.index = list.taskList.length;
+  list.index = list.taskList.length + 1;
+  populateStorage(list);
 };
 
 const clear = (list) => {
@@ -18,9 +19,8 @@ const clear = (list) => {
     checked.forEach((item) => {
       item.parentNode.parentNode.removeChild(item.parentNode);
     });
-    list.taskList = list.taskList.filter((item) => item.completed !== 1);
+    list.taskList = list.taskList.filter((item) => item.completed !== true);
     rearrangeIndex(list);
-    populateStorage(list);
   });
 };
 
@@ -33,7 +33,6 @@ const remove = (list) => {
     );
     tasks.removeChild(evt.currentTarget.parentNode);
     rearrangeIndex(list);
-    populateStorage(list);
   });
 };
 
@@ -66,9 +65,8 @@ const modify = (list) => {
         );
         taskList.removeChild(evt.currentTarget.parentNode);
         rearrangeIndex(list);
-        populateStorage(list);
       } else {
-        list.taskList[`${evt.currentTarget.dataset.value}`].desc = evt.currentTarget.value;
+        list.taskList[`${evt.currentTarget.dataset.value - 1}`].desc = evt.currentTarget.value;
         populateStorage(list);
       }
       evt.currentTarget.blur();

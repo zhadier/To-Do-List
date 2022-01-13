@@ -6,7 +6,7 @@ const display = (data) => {
   <input class = "inputTasks" type="text" data-value="${data.index}">
       <i class="fas fa-ellipsis-v"></i>
       <button type="button" class="removeButton toggle" data-value = 1><i class="fas fa-trash"></i></button>`;
-  if (data.completed === 1) {
+  if (data.completed === true) {
     li.firstElementChild.setAttribute('checked', 'true');
     li.children[1].classList.add('checked');
   }
