@@ -80,6 +80,17 @@ body {
 .task > i {
   margin-left: auto;
   color: rgb(185, 185, 185);
+  cursor: pointer;
+}
+
+.dragging {
+  opacity: 0.2;
+  background-color: rgb(169, 169, 169);
+}
+
+.dragging > input {
+  background-color: darkgray;
+  color: darkgray;
 }
 
 #clear {
@@ -120,11 +131,7 @@ body {
 }
 
 .focused {
-  background: rgb(248, 248, 123);
-}
-
-.focused > .inputTasks {
-  background: rgb(248, 248, 123);
+  background: rgb(239, 250, 209);
 }
 
 .checked {
