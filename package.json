@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/zhadier/To-Do-List/issues"
   },
-  "homepage": "https://github.com/zhadier/To-Do-List#readme",
+  "homepage": "https://github.com/zhadier/To-Do-List/dist/index.html",
   "devDependencies": {
     "css-loader": "^6.5.1",
     "html-webpack-plugin": "^5.5.0",
