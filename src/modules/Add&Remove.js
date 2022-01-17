@@ -1,6 +1,7 @@
 import display from './Display.js';
 import populateStorage from './PopulateStorage.js';
 import { checked, clear, rearrangeIndex } from './Check$Clear.js';
+import DragDrop from './Drag&Drop';
 
 const remove = (list) => {
   const tasks = document.querySelector('.taskList');
@@ -66,6 +67,7 @@ const add = (data, list) => {
   remove(list);
   modify(list);
   clear(list);
+  DragDrop(list);
   populateStorage(list);
   list.index += 1;
 };

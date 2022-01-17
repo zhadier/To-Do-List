@@ -4,7 +4,7 @@ const display = (data) => {
   li.className = 'task';
   li.innerHTML = ` <input type="checkbox" class="checkBox">
   <input class = "inputTasks" type="text" data-value="${data.index}">
-      <i class="fas fa-ellipsis-v"></i>
+      <i class="fas fa-ellipsis-v draggable" draggable ="true"></i>
       <button type="button" class="removeButton toggle" data-value = 1><i class="fas fa-trash"></i></button>`;
   if (data.completed === true) {
     li.firstElementChild.setAttribute('checked', 'true');
