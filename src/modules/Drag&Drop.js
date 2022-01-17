@@ -1,5 +1,4 @@
 import populateStorage from './PopulateStorage.js';
-import TASK from './Task.js';
 
 const dragndrop = (list) => {
   const draggables = document.querySelectorAll('.task');
