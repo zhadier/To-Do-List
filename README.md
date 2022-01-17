@@ -14,7 +14,7 @@ It is a simple web page which contains information about all the tasks you have 
 
 ## Live Demo
 
-- [Live Demo Link]()
+- [Github Page Link](https://zhadier.github.io/To-Do-List)
 
 ## Getting Started
 
