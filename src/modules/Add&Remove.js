@@ -1,22 +1,43 @@
-import display from './Display.js';
+import displayInDom from './Display.js';
 import populateStorage from './PopulateStorage.js';
-import { checked, clear, rearrangeIndex } from './Check$Clear.js';
-import DragDrop from './Drag&Drop';
+import { checkedInDom, clearInDom, rearrangeIndex } from './Check$Clear.js';
+import DragDrop from './Drag&Drop.js';
 
-const remove = (list) => {
-  const tasks = document.querySelector('.taskList');
+// ### List functions ###
+const removeViaIndex = (list, dataIndex) => {
+  list.taskList = list.taskList.filter((item) => item.index !== dataIndex);
+};
+
+const updateListDesc = (list, index, desc) => {
+  list.taskList[index].desc = desc;
+};
+
+const validateInput = (data, list) => {
+  if (data.desc === '') {
+    return 0;
+  }
+  if (list.taskList.filter((item) => item.desc === data.desc).length > 0) {
+    return 0;
+  }
+  return 1;
+};
+
+const addToList = (data, list) => {
+  list.index = data.index;
+  list.taskList.push(data);
+};
+
+// ### Dom Functions ###
+const removeFromDom = (list) => {
   const re = document.querySelectorAll('.removeButton');
   re[re.length - 1].addEventListener('click', (evt) => {
-    list.taskList = list.taskList.filter(
-      (item) => item.index !== Number(evt.currentTarget.parentNode.children[1].dataset.value),
-    );
-    tasks.removeChild(evt.currentTarget.parentNode);
+    removeViaIndex(list, Number(evt.currentTarget.parentNode.children[1].dataset.value));
+    evt.currentTarget.parentNode.remove();
     rearrangeIndex(list);
   });
 };
 
-const modify = (list) => {
-  const taskList = document.querySelector('.taskList');
+const modifyInDom = (list) => {
   const tasks = document.querySelectorAll('.inputTasks');
   const initial = tasks.length;
   tasks[tasks.length - 1].addEventListener('focusin', (evt) => {
@@ -33,19 +54,16 @@ const modify = (list) => {
         block.classList.add('toggle');
         block2.classList.remove('toggle');
       }
-    }, 90);
+    }, 110);
   });
-
   tasks[tasks.length - 1].addEventListener('keypress', (evt) => {
     if (evt.key === 'Enter') {
       if (evt.currentTarget.value === '') {
-        list.taskList = list.taskList.filter(
-          (item) => item.index !== Number(evt.currentTarget.dataset.value),
-        );
-        taskList.removeChild(evt.currentTarget.parentNode);
+        removeViaIndex(list, Number(evt.currentTarget.dataset.value));
+        evt.currentTarget.parentNode.remove();
         rearrangeIndex(list);
       } else {
-        list.taskList[`${evt.currentTarget.dataset.value - 1}`].desc = evt.currentTarget.value;
+        updateListDesc(list, evt.currentTarget.dataset.value - 1, evt.currentTarget.value);
         populateStorage(list);
       }
       evt.currentTarget.blur();
@@ -53,23 +71,19 @@ const modify = (list) => {
   });
 };
 
-const add = (data, list) => {
-  if (data.desc === '') {
+const addToDom = (data, list) => {
+  if (!validateInput(data, list)) {
     return;
   }
-  if (list.taskList.filter((item) => item.desc === data.desc).length > 0) {
-    return;
-  }
-  list.index = data.index;
-  list.taskList.push(data);
-  display(data, list);
-  checked(list);
-  remove(list);
-  modify(list);
-  clear(list);
+  addToList(data, list);
+  displayInDom(data, list);
+  checkedInDom(list);
+  removeFromDom(list);
+  modifyInDom(list);
+  clearInDom(list);
   DragDrop(list);
   populateStorage(list);
   list.index += 1;
 };
 
-export { add as default };
+export { addToDom as default };
