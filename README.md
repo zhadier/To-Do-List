@@ -4,7 +4,8 @@
 
 > This Webpage is for a To-Do-List which helps you keep track of all the tasks you have to do through out the day. You can add, remove, clear, check or reorder the tasks as you want :)
 
-![screenshot](https://user-images.githubusercontent.com/90556221/149033173-5d8a0805-453f-44a5-a69f-3bff67e844ac.png)
+![screenshot](https://user-images.githubusercontent.com/90556221/154583163-e1e850ad-10a1-45e8-b74e-2cc300e2ad7a.png)
+
 I came up with the drag and drop functionality by myself which I'm is something I'm really proud to have accomplished in this project
 
 ## Built With
