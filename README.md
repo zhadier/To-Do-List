@@ -23,7 +23,7 @@ I came up with the drag and drop functionality by myself which I'm is something 
 
 - Clone this repo locally using git in the command line and the following command
 
-  git clone https://github.com/zhadier/JavaScript-Capstone
+  git clone https://github.com/zhadier/To-Do-List
   
 - Alternatively, you can just download the complete zip file and extract the folder in your directory
 
